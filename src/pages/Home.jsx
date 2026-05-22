@@ -9,7 +9,7 @@ import Magazine from "../components/Magazine";
 import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
 import Project from "../components/Project";
-
+import About from "../components/About";
 const Home = () => {
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const Home = () => {
       <Services />
       <Magazine />
       <Portfolio />
+      <About/>
       <Contact />
       <Project/>
     </>

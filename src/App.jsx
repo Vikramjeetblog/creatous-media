@@ -15,6 +15,7 @@ import SubmissionPolicy from "./pages/SubmissionPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
 import CursorGlow from "./components/CursorGlow";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollToHashElement from "./components/ScrollToHashElement";
 import SuccessMessage from "./components/SuccessMessage";
 import { Toaster } from "react-hot-toast";
 function App() {
@@ -41,6 +42,7 @@ function App() {
 />
       {/* AUTO SCROLL TO TOP */}
       <ScrollToTop />
+      <ScrollToHashElement/>
 
       {/* CURSOR GLOW */}
       <div

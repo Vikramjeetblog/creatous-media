@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
@@ -34,6 +36,7 @@ const Navbar = () => {
     { name: "Services", id: "services" },
     { name: "Magazine", id: "magazine" },
     { name: "Portfolio", id: "portfolio" },
+     { name: "About", id: "about" },
     { name: "Contact", id: "contact" },
   ];
 
@@ -43,8 +46,9 @@ const Navbar = () => {
       <div className="max-w-[1550px] mx-auto px-[5%] h-[82px] flex items-center justify-between">
 
         {/* LOGO */}
-        <a
-          href="#home"
+        <HashLink
+          smooth
+          to="/#home"
           className="
             font-['Montserrat']
             text-[1rem]
@@ -60,15 +64,16 @@ const Navbar = () => {
           <span className="opacity-40 text-[0.7rem] align-top ml-[2px]">
             ™
           </span>
-        </a>
+        </HashLink>
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-[45px]">
 
           {navLinks.map((link) => (
-            <a
+            <HashLink
+              smooth
               key={link.id}
-              href={`#${link.id}`}
+              to={`/#${link.id}`}
               className={`
                 relative
                 text-[0.9rem]
@@ -94,7 +99,7 @@ const Navbar = () => {
               `}
             >
               {link.name}
-            </a>
+            </HashLink>
           ))}
 
         </nav>
@@ -103,31 +108,26 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
 
           {/* DESKTOP BUTTON */}
-          <a
-            href="#start-project"
+          <HashLink
+            smooth
+            to="/#start-project"
             className="
               hidden md:flex
-
               px-[28px]
               py-[14px]
-
               bg-white
               text-black
-
               rounded-full
-
               text-[0.95rem]
               font-[600]
-
               transition-all
               duration-300
-
               hover:scale-[1.03]
               hover:-translate-y-[2px]
             "
           >
             Start Project
-          </a>
+          </HashLink>
 
           {/* MOBILE MENU BUTTON */}
           <button
@@ -164,9 +164,10 @@ const Navbar = () => {
         <div className="px-6 py-6 flex flex-col gap-5">
 
           {navLinks.map((link) => (
-            <a
+            <HashLink
+              smooth
               key={link.id}
-              href={`#${link.id}`}
+              to={`/#${link.id}`}
               onClick={() => setMenuOpen(false)}
               className={`
                 text-[1rem]
@@ -181,33 +182,29 @@ const Navbar = () => {
               `}
             >
               {link.name}
-            </a>
+            </HashLink>
           ))}
 
           {/* MOBILE BUTTON */}
-          <a
-            href="#start-project"
+          <HashLink
+            smooth
+            to="/#start-project"
             onClick={() => setMenuOpen(false)}
             className="
               mt-3
-
               w-full
               text-center
-
               px-6
               py-4
-
               bg-white
               text-black
-
               rounded-full
-
               text-[0.95rem]
               font-[600]
             "
           >
             Start Project
-          </a>
+          </HashLink>
 
         </div>
       </div>

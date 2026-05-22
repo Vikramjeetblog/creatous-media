@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-
   // SLOW CINEMATIC ANIMATION
   const fadeUp = {
     hidden: {
@@ -43,59 +42,58 @@ const Hero = () => {
 
   return (
     <section
-  id="home"
-  className="
-    relative
-    min-h-screen
-    overflow-hidden
-    bg-black
+      id="home"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        
 
-    pt-[170px]
-    pb-[100px]
-    px-[7%]
-  "
->
+        pt-[170px]
+        pb-[100px]
+        px-[7%]
+      "
+    >
+      {/* MAIN BACKGROUND VIDEO */}
+      <video
+        src="/video/brand.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="
+          absolute
+          inset-0
 
-  {/* MAIN BACKGROUND VIDEO */}
-  <video
-    src="/video/hero2.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="
-      absolute
-      inset-0
+          w-full
+          h-full
 
-      w-full
-      h-full
+          object-cover
 
-      object-cover
+          z-0
+        "
+      />
 
-      z-0
-    "
-  />
+      {/* DARK OVERLAY */}
+      <div
+        className="
+          absolute
+          inset-0
 
-  {/* DARK OVERLAY */}
-  <div
-    className="
-      absolute
-      inset-0
+          bg-black/65
 
-      bg-black/65
+          z-[1]
+        "
+      />
 
-      z-[1]
-    "
-  />
-
-  {/* OPTIONAL GRADIENT OVERLAY */}
-  <div
-    className="
-      absolute
-      inset-0
-      z-[2]
-    "
-  />
+      {/* OPTIONAL GRADIENT OVERLAY */}
+      <div
+        className="
+          absolute
+          inset-0
+          z-[2]
+        "
+      />
 
       {/* AMBIENT GLOW */}
       <motion.div
@@ -123,7 +121,6 @@ const Hero = () => {
       />
 
       <div className="relative z-10 max-w-[1550px] mx-auto">
-
         {/* HERO TOP */}
         <div
           className="
@@ -133,12 +130,13 @@ const Hero = () => {
             grid
             lg:grid-cols-[0.9fr_0.55fr]
 
-            gap-[120px]
+            gap-10
+sm:gap-16
+lg:gap-[120px]
 
             items-center
           "
         >
-
           {/* LEFT CONTENT */}
           <motion.div
             variants={fadeUp}
@@ -150,7 +148,6 @@ const Hero = () => {
             }}
             className="max-w-[620px]"
           >
-
             <motion.small
               initial={{
                 opacity: 0,
@@ -199,15 +196,19 @@ const Hero = () => {
                 uppercase
 
                 leading-[0.82]
-                tracking-[-8px]
 
-                text-[5rem]
-                sm:text-[7rem]
-                md:text-[8rem]
-                lg:text-[9rem]
+                tracking-[-3px]
+                sm:tracking-[-6px]
+                md:tracking-[-8px]
+
+                text-[3.2rem]
+                xs:text-[4rem]
+                sm:text-[5.5rem]
+                md:text-[7rem]
+                lg:text-[8rem]
+                xl:text-[9rem]
               "
             >
-
               We
               <br />
 
@@ -245,17 +246,38 @@ const Hero = () => {
 
                   bg-clip-text
                   text-transparent
+
+                  break-words
                 "
               >
                 We Make
                 <br />
-                them
+
+                <span className="inline-block">them</span>
+
                 <br />
-                UNFORGETTABLE.
+
+                <span
+                  className="
+                    inline-block
+
+                    tracking-[-2px]
+                    sm:tracking-[-4px]
+                    md:tracking-[-6px]
+
+                    text-[2.2rem]
+                    xs:text-[2.8rem]
+                    sm:text-[4.5rem]
+                    md:text-[5.8rem]
+                    lg:text-[7rem]
+
+                    leading-[0.9]
+                  "
+                >
+                  UNFORGETTABLE.
+                </span>
               </span>
-
             </motion.h1>
-
           </motion.div>
 
           {/* RIGHT CONTENT */}
@@ -267,9 +289,15 @@ const Hero = () => {
               once: true,
               amount: 0.2,
             }}
-            className="max-w-[430px] pt-[180px]"
-          >
+            className="
+  max-w-[430px]
 
+  pt-10
+  sm:pt-16
+  md:pt-24
+  lg:pt-[180px]
+"
+          >
             <motion.p
               initial={{
                 opacity: 0,
@@ -287,16 +315,17 @@ const Hero = () => {
               className="
                 text-white/70
 
-                leading-[2.4]
+                text-[0.9rem]
+                sm:text-[0.95rem]
 
-                text-[0.95rem]
+                leading-[1.9]
+                sm:leading-[2.4]
               "
             >
-              CC Media™ helps creators, artists,
-              startups, and modern businesses turn
-              ideas into unforgettable brands through
-              storytelling, cinematic production,
-              digital experiences, and creative strategy.
+              CC Media™ helps creators, artists, startups, and modern
+              businesses turn ideas into unforgettable brands through
+              storytelling, cinematic production, digital experiences, and
+              creative strategy.
             </motion.p>
 
             {/* BUTTONS */}
@@ -316,7 +345,6 @@ const Hero = () => {
               }}
               className="flex flex-wrap gap-4 mt-10"
             >
-
               <a
                 href="#services"
                 className="
@@ -363,11 +391,8 @@ const Hero = () => {
               >
                 Spotlight Magazine
               </a>
-
             </motion.div>
-
           </motion.div>
-
         </div>
 
         {/* SHOWCASE SECTION */}
@@ -388,18 +413,24 @@ const Hero = () => {
             once: true,
             amount: 0.2,
           }}
-          className="
-            grid
-            lg:grid-cols-[1.3fr_0.7fr]
+         className="
+  
 
-            gap-6
+   grid
+  lg:grid-cols-[1.3fr_0.7fr]
 
-            mt-24
+  gap-6
 
-            min-h-[760px]
-          "
-        >
+  mt-24
 
+  min-h-[520px]
+  sm:min-h-[700px]
+  md:min-h-[850px]
+  lg:min-h-[980px]
+
+
+  
+">
           {/* MAIN IMAGE */}
           <motion.div
             whileHover={{
@@ -408,95 +439,104 @@ const Hero = () => {
             transition={{
               duration: 0.8,
             }}
-            className="
-              relative
-              overflow-hidden
+           className="
+  relative
+  overflow-hidden
 
-              rounded-[40px]
+  rounded-[40px]
 
-              border border-white/5
+  border border-white/5
 
-              shadow-[0_30px_80px_rgba(0,0,0,0.45)]
+  shadow-[0_30px_80px_rgba(0,0,0,0.45)]
 
-              group
-            "
-          >
+  min-h-[520px]
+  sm:min-h-[700px]
+  md:min-h-[850px]
+  lg:min-h-[980px]
 
+  group
+">
             <video
-  src="/video/hero3.mp4"
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="
-    w-full
-    h-full
-    object-cover
-    transition-transform
-    duration-[1500ms]
-    group-hover:scale-105
-  "
-/>
+              src="/video/hero3.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="
+                w-full
+                h-full
+
+                object-cover
+                object-center
+
+                transition-transform
+                duration-[1500ms]
+
+                group-hover:scale-105
+              "
+            />
 
             <div
               className="
                 absolute
                 inset-0
 
-                bg-gradient-to-t
-                from-black/95
-                via-black/30
-                to-transparent
+                
 
                 flex
                 flex-col
                 justify-end
 
-                p-[50px]
+                p-5
+                sm:p-8
+                md:p-[50px]
               "
             >
-
               <h2
                 className="
-                  text-[2.5rem]
-                  md:text-[4.5rem]
+                  text-[1.5rem]
+                  sm:text-[2.2rem]
+                  md:text-[3.2rem]
+                  lg:text-[4.5rem]
 
-                  leading-[0.95]
+                  leading-[1]
+                  sm:leading-[0.95]
 
                   font-bold
                   font-[Montserrat]
 
                   max-w-[700px]
 
-                  mb-6
+                  mb-3
+                  sm:mb-6
                 "
               >
-                Premium Creative Experiences
-                For Modern Brands.
+                Premium Creative Experiences For Modern Brands.
               </h2>
 
               <p
                 className="
                   max-w-[580px]
 
-                  leading-[1.9]
+                  text-[0.78rem]
+                  sm:text-[0.95rem]
+                  md:text-[1rem]
+
+                  leading-[1.6]
+                  sm:leading-[1.9]
 
                   text-white/85
                 "
               >
-                Minimal aesthetics, luxury visuals,
-                creative storytelling, and stylish
-                digital experiences designed with
-                international standards.
+                Minimal aesthetics, luxury visuals, creative storytelling, and
+                stylish digital experiences designed with international
+                standards.
               </p>
-
             </div>
-
           </motion.div>
 
           {/* SIDE CARDS */}
           <div className="grid grid-rows-2 gap-6">
-
             {/* CARD 1 */}
             <motion.div
               initial={{
@@ -539,7 +579,6 @@ const Hero = () => {
                 duration-500
               "
             >
-
               <small
                 className="
                   uppercase
@@ -569,12 +608,9 @@ const Hero = () => {
               </h3>
 
               <p className="text-white/70 leading-[1.9]">
-                We transform businesses, creators,
-                startups, and artists into premium
-                digital brands with strong identity
-                and storytelling.
+                We transform businesses, creators, startups, and artists into
+                premium digital brands with strong identity and storytelling.
               </p>
-
             </motion.div>
 
             {/* CARD 2 */}
@@ -619,7 +655,6 @@ const Hero = () => {
                 duration-500
               "
             >
-
               <small
                 className="
                   uppercase
@@ -649,17 +684,12 @@ const Hero = () => {
               </h3>
 
               <p className="text-white/70 leading-[1.9]">
-                A premium creator-first editorial
-                experience inspired by global magazine
-                culture and modern digital storytelling.
+                A premium creator-first editorial experience inspired by global
+                magazine culture and modern digital storytelling.
               </p>
-
             </motion.div>
-
           </div>
-
         </motion.div>
-
       </div>
     </section>
   );

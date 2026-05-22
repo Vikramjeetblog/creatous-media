@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -19,13 +20,10 @@ const Footer = () => {
               to="/spotlight"
               className="
                 inline-block
-
                 text-[2rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -35,9 +33,7 @@ const Footer = () => {
             <p
               className="
                 max-w-[380px]
-
                 leading-[1.9]
-
                 text-[#d0d0d0]
               "
             >
@@ -57,9 +53,7 @@ const Footer = () => {
                 text-[1rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -68,65 +62,61 @@ const Footer = () => {
 
             <div className="flex flex-col gap-[14px]">
 
-              <a
-                href="#editorial"
+              <HashLink
+                smooth
+                to="/spotlight#editorial"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 Editorial
-              </a>
+              </HashLink>
 
-              <a
-                href="#features"
+              <HashLink
+                smooth
+                to="/spotlight#features"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 Features
-              </a>
+              </HashLink>
 
-              <a
-                href="#submit"
+              <HashLink
+                smooth
+                to="/spotlight#submit"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 Submit
-              </a>
+              </HashLink>
 
-              <a
-                href="#about"
+              <HashLink
+                smooth
+                to="/spotlight#about"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 About
-              </a>
+              </HashLink>
 
             </div>
           </div>
@@ -139,9 +129,7 @@ const Footer = () => {
                 text-[1rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -154,10 +142,8 @@ const Footer = () => {
                 to="/submission-guidelines"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -169,10 +155,8 @@ const Footer = () => {
                 to="/submit-portfolio"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -184,10 +168,8 @@ const Footer = () => {
                 to="/terms"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -199,10 +181,8 @@ const Footer = () => {
                 to="/privacy-policy"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -221,9 +201,7 @@ const Footer = () => {
                 text-[1rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -236,10 +214,8 @@ const Footer = () => {
                 href="mailto:support@creatouscollective.media"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -248,13 +224,13 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/creatouscollectivemedia/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -263,13 +239,13 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.linkedin.com/company/creatous-collective-media/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -281,10 +257,8 @@ const Footer = () => {
                 to="/"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -302,26 +276,20 @@ const Footer = () => {
           className="
             mt-[60px]
             pt-[40px]
-
             border-t border-white/[0.06]
-
             flex
             flex-col
             md:flex-row
-
             items-start
             md:items-center
-
             justify-between
-
             gap-[20px]
-
             text-[#a6a6a6]
           "
         >
 
           <p>
-            © 2026 Spotlight Platform™.
+            © 2026 CC Media™.
             All Rights Reserved.
           </p>
 

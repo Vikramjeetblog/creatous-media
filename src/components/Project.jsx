@@ -1,12 +1,18 @@
 // StartProject.jsx
 
 import React, { useState } from "react";
-import{Link} from "react-router-dom"
+
+import { Link } from "react-router-dom";
+
 import {
   CalendarDays,
   Clock3,
   ArrowRight,
 } from "lucide-react";
+
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 import { toast } from "react-hot-toast";
 
@@ -16,9 +22,15 @@ const StartProject = () => {
 
   const [agreed, setAgreed] = useState(false);
 
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
+  // DATE
+  const [selectedDate, setSelectedDate] =
+    useState(null);
 
+  // TIME
+  const [selectedTime, setSelectedTime] =
+    useState(null);
+
+  // FORM DATA
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,6 +39,7 @@ const StartProject = () => {
     message: "",
   });
 
+  // ERRORS
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -37,15 +50,6 @@ const StartProject = () => {
     message: "",
     terms: "",
   });
-
-  const slots = [
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
-  ];
 
   // HANDLE INPUT
   const handleChange = (e) => {
@@ -61,7 +65,8 @@ const StartProject = () => {
     // NAME VALIDATION
     if (name === "name") {
 
-      const cleaned = value.replace(/[0-9]/g, "");
+      const cleaned =
+        value.replace(/[0-9]/g, "");
 
       setFormData({
         ...formData,
@@ -74,7 +79,8 @@ const StartProject = () => {
     // PHONE VALIDATION
     if (name === "phone") {
 
-      const cleaned = value.replace(/\D/g, "");
+      const cleaned =
+        value.replace(/\D/g, "");
 
       setFormData({
         ...formData,
@@ -113,10 +119,14 @@ const StartProject = () => {
     // NAME
     if (!formData.name.trim()) {
 
-      newErrors.name = "Full name is required.";
+      newErrors.name =
+        "Full name is required.";
+
       hasError = true;
 
-    } else if (/\d/.test(formData.name)) {
+    } else if (
+      /\d/.test(formData.name)
+    ) {
 
       newErrors.name =
         "Name cannot contain numbers.";
@@ -152,7 +162,11 @@ const StartProject = () => {
 
       hasError = true;
 
-    } else if (!/^\d{10}$/.test(formData.phone)) {
+    } else if (
+      !/^\d{10}$/.test(
+        formData.phone
+      )
+    ) {
 
       newErrors.phone =
         "Phone number must be exactly 10 digits.";
@@ -182,7 +196,7 @@ const StartProject = () => {
     if (!selectedTime) {
 
       newErrors.time =
-        "Please select a time slot.";
+        "Please select a meeting time.";
 
       hasError = true;
     }
@@ -221,7 +235,8 @@ const StartProject = () => {
           mode: "no-cors",
 
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type":
+              "application/json",
           },
 
           body: JSON.stringify({
@@ -245,8 +260,10 @@ const StartProject = () => {
         message: "",
       });
 
-      setSelectedDate("");
-      setSelectedTime("");
+      setSelectedDate(null);
+
+      setSelectedTime(null);
+
       setAgreed(false);
 
     } catch (error) {
@@ -267,9 +284,7 @@ const StartProject = () => {
       className="
         py-[140px]
         px-[7%]
-
         bg-[#050505]
-
         overflow-hidden
       "
     >
@@ -293,16 +308,12 @@ const StartProject = () => {
           <h2
             className="
               mt-[18px]
-
               text-[3rem]
               md:text-[5rem]
               xl:text-[6rem]
-
               leading-[0.9]
-
               font-['Montserrat']
               font-[800]
-
               uppercase
             "
           >
@@ -321,17 +332,11 @@ const StartProject = () => {
         <div
           className="
             relative
-
             rounded-[45px]
-
             border border-white/[0.06]
-
             bg-white/[0.03]
-
             backdrop-blur-[20px]
-
             overflow-hidden
-
             shadow-[0_30px_100px_rgba(0,0,0,0.45)]
           "
         >
@@ -342,16 +347,11 @@ const StartProject = () => {
               absolute
               top-[-120px]
               right-[-120px]
-
               w-[340px]
               h-[340px]
-
               rounded-full
-
               bg-[#5b3df5]/20
-
               blur-[140px]
-
               pointer-events-none
             "
           />
@@ -360,12 +360,9 @@ const StartProject = () => {
             className="
               relative
               z-10
-
               grid
               lg:grid-cols-[0.95fr_1.05fr]
-
               gap-[50px]
-
               p-[35px]
               md:p-[55px]
             "
@@ -380,16 +377,11 @@ const StartProject = () => {
                   className="
                     text-[2.5rem]
                     md:text-[3.4rem]
-
                     leading-[1]
-
                     font-['Montserrat']
                     font-[700]
-
                     text-white
-
                     max-w-[520px]
-
                     mb-[30px]
                   "
                 >
@@ -399,11 +391,8 @@ const StartProject = () => {
                 <p
                   className="
                     text-[#d0d0d0]
-
                     leading-[2]
-
                     text-[1rem]
-
                     max-w-[520px]
                   "
                 >
@@ -425,13 +414,9 @@ const StartProject = () => {
                     className="
                       w-[42px]
                       h-[42px]
-
                       rounded-full
-
                       bg-white/[0.04]
-
                       border border-white/[0.06]
-
                       flex
                       items-center
                       justify-center
@@ -439,7 +424,7 @@ const StartProject = () => {
                   >
                     <CalendarDays
                       size={18}
-                      className="text-[#fffff]"
+                      className="text-white"
                     />
                   </div>
 
@@ -455,13 +440,9 @@ const StartProject = () => {
                     className="
                       w-[42px]
                       h-[42px]
-
                       rounded-full
-
                       bg-white/[0.04]
-
                       border border-white/[0.06]
-
                       flex
                       items-center
                       justify-center
@@ -469,12 +450,12 @@ const StartProject = () => {
                   >
                     <Clock3
                       size={18}
-                      className="text-[#ffff]"
+                      className="text-white"
                     />
                   </div>
 
                   <span className="text-[#d8d8d8]">
-                    Select an available consultation slot.
+                    Select your preferred meeting time.
                   </span>
 
                 </div>
@@ -485,13 +466,9 @@ const StartProject = () => {
                     className="
                       w-[42px]
                       h-[42px]
-
                       rounded-full
-
                       bg-white/[0.04]
-
                       border border-white/[0.06]
-
                       flex
                       items-center
                       justify-center
@@ -499,7 +476,7 @@ const StartProject = () => {
                   >
                     <ArrowRight
                       size={18}
-                      className="text-[#ffff]"
+                      className="text-white"
                     />
                   </div>
 
@@ -537,22 +514,14 @@ const StartProject = () => {
                     className="
                       w-full
                       h-[64px]
-
                       bg-black/50
-
                       border border-white/[0.06]
-
                       px-[22px]
-
                       text-white
-
                       outline-none
-
                       transition-all
                       duration-300
-
                       focus:border-[#ffff]
-
                       placeholder:text-[#8a8a8a]
                     "
                   />
@@ -581,22 +550,14 @@ const StartProject = () => {
                     className="
                       w-full
                       h-[64px]
-
                       bg-black/50
-
                       border border-white/[0.06]
-
                       px-[22px]
-
                       text-white
-
                       outline-none
-
                       transition-all
                       duration-300
-
                       focus:border-[#ffff]
-
                       placeholder:text-[#8a8a8a]
                     "
                   />
@@ -626,22 +587,14 @@ const StartProject = () => {
                     className="
                       w-full
                       h-[64px]
-
                       bg-black/50
-
                       border border-white/[0.06]
-
                       px-[22px]
-
                       text-white
-
                       outline-none
-
                       transition-all
                       duration-300
-
                       focus:border-[#ffff]
-
                       placeholder:text-[#8a8a8a]
                     "
                   />
@@ -654,7 +607,7 @@ const StartProject = () => {
 
                 </div>
 
-                {/* PROJECT TYPE */}
+                {/* PROJECT */}
                 <div>
 
                   <label className="block text-white font-[500] mb-[12px]">
@@ -668,20 +621,13 @@ const StartProject = () => {
                     className="
                       w-full
                       h-[64px]
-
                       bg-black/50
-
                       border border-white/[0.06]
-
                       px-[22px]
-
                       text-white
-
                       outline-none
-
                       transition-all
                       duration-300
-
                       focus:border-[#ffff]
                     "
                   >
@@ -719,106 +665,168 @@ const StartProject = () => {
 
                 </div>
 
-                {/* DATE */}
-                <div>
+                
 
-                  <label className="block text-white font-[500] mb-[12px]">
-                    Select Date
-                  </label>
+               {/* DATE & TIME ROW */}
+<div className="grid md:grid-cols-2 gap-[20px]">
 
-                  <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={(e) => {
-                      setSelectedDate(e.target.value);
+  {/* DATE */}
+  <div>
 
-                      setErrors((prev) => ({
-                        ...prev,
-                        date: "",
-                      }));
-                    }}
-                    className="
-                      w-full
-                      h-[64px]
+    <label className="block text-white font-[500] mb-[12px]">
+      Select Date
+    </label>
 
-                      bg-black/50
+    <DatePicker
+      selected={selectedDate}
 
-                      border border-white/[0.06]
+      onChange={(date) => {
 
-                      px-[22px]
+        setSelectedDate(date);
 
-                      text-white
+        setErrors((prev) => ({
+          ...prev,
+          date: "",
+        }));
+      }}
 
-                      outline-none
+      minDate={new Date()}
 
-                      transition-all
-                      duration-300
+      dateFormat="MMMM d, yyyy"
 
-                      focus:border-[#ffff]
-                    "
-                  />
+      placeholderText="Choose meeting date"
 
-                  {errors.date && (
-                    <p className="text-red-400 text-[0.85rem] mt-[8px]">
-                      {errors.date}
-                    </p>
-                  )}
+      onKeyDown={(e) =>
+        e.preventDefault()
+      }
 
-                </div>
+      onPaste={(e) =>
+        e.preventDefault()
+      }
 
-                {/* TIME SLOTS */}
-                <div>
+      className="
+        w-full
+        h-[64px]
 
-                  <label className="block text-white font-[500] mb-[12px]">
-                    Select Time Slot
-                  </label>
+        bg-black/50
 
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-[14px]">
+        border border-white/[0.06]
 
-                    {slots.map((slot, index) => (
+        px-[22px]
 
-                      <button
-                        key={index}
-                        type="button"
-                        onClick={() => {
-                          setSelectedTime(slot);
+        text-white
 
-                          setErrors((prev) => ({
-                            ...prev,
-                            time: "",
-                          }));
-                        }}
-                        className={`
-                          h-[58px]
+        outline-none
 
-                          border
+        transition-all
+        duration-300
 
-                          text-[0.95rem]
+        focus:border-[#ffff]
 
-                          transition-all
-                          duration-300
+        placeholder:text-[#8a8a8a]
+      "
+    />
 
-                          ${
-                            selectedTime === slot
-                              ? "bg-[#ffff] text-black border-[#ffff]"
-                              : "bg-black/50 text-white border-white/[0.06] hover:border-[#ffff]"
-                          }
-                        `}
-                      >
-                        {slot}
-                      </button>
+    {errors.date && (
+      <p className="text-red-400 text-[0.85rem] mt-[8px]">
+        {errors.date}
+      </p>
+    )}
 
-                    ))}
+  </div>
 
-                  </div>
+  {/* TIME */}
+  <div>
 
-                  {errors.time && (
-                    <p className="text-red-400 text-[0.85rem] mt-[8px]">
-                      {errors.time}
-                    </p>
-                  )}
+    <label className="block text-white font-[500] mb-[12px]">
+      Select Time
+    </label>
 
-                </div>
+    <DatePicker
+      selected={selectedTime}
+
+      onChange={(time) => {
+
+        setSelectedTime(time);
+
+        setErrors((prev) => ({
+          ...prev,
+          time: "",
+        }));
+      }}
+
+      showTimeSelect
+
+      showTimeSelectOnly
+
+      timeIntervals={30}
+
+      minTime={
+        new Date(
+          0,
+          0,
+          0,
+          9,
+          0
+        )
+      }
+
+      maxTime={
+        new Date(
+          0,
+          0,
+          0,
+          19,
+          0
+        )
+      }
+
+      timeCaption="Time"
+
+      dateFormat="hh:mm aa"
+
+      placeholderText="Choose meeting time"
+
+      onKeyDown={(e) =>
+        e.preventDefault()
+      }
+
+      onPaste={(e) =>
+        e.preventDefault()
+      }
+
+      className="
+        w-full
+        h-[64px]
+
+        bg-black/50
+
+        border border-white/[0.06]
+
+        px-[22px]
+
+        text-white
+
+        outline-none
+
+        transition-all
+        duration-300
+
+        focus:border-[#ffff]
+
+        placeholder:text-[#8a8a8a]
+      "
+    />
+
+    {errors.time && (
+      <p className="text-red-400 text-[0.85rem] mt-[8px]">
+        {errors.time}
+      </p>
+    )}
+
+  </div>
+
+</div>
 
                 {/* MESSAGE */}
                 <div>
@@ -835,25 +843,16 @@ const StartProject = () => {
                     placeholder="Tell us about your project goals..."
                     className="
                       w-full
-
                       bg-black/50
-
                       border border-white/[0.06]
-
                       px-[22px]
                       py-[18px]
-
                       text-white
-
                       outline-none
-
                       resize-none
-
                       transition-all
                       duration-300
-
                       focus:border-[#ffff]
-
                       placeholder:text-[#8a8a8a]
                     "
                   />
@@ -875,7 +874,10 @@ const StartProject = () => {
                       type="checkbox"
                       checked={agreed}
                       onChange={(e) => {
-                        setAgreed(e.target.checked);
+
+                        setAgreed(
+                          e.target.checked
+                        );
 
                         setErrors((prev) => ({
                           ...prev,
@@ -884,7 +886,6 @@ const StartProject = () => {
                       }}
                       className="
                         mt-[4px]
-
                         accent-[#ffff]
                       "
                     />
@@ -892,22 +893,22 @@ const StartProject = () => {
                     <span
                       className="
                         text-[0.92rem]
-
                         leading-[1.8]
-
                         text-[#bdbdbd]
                       "
                     >
-                      By continuing, you agree to our{" "}
+                      By continuing,
+                      you agree to our{" "}
 
                       <Link
-                        href="/terms"
+                        to="/terms"
                         className="
                           text-[#ffff]
                           hover:underline
                         "
                       >
-                        Terms & Conditions
+                        Terms &
+                        Conditions
                       </Link>{" "}
 
                       and{" "}
@@ -939,15 +940,10 @@ const StartProject = () => {
                   disabled={loading}
                   className={`
                     mt-[10px]
-
                     h-[64px]
-
                     text-black
-
                     font-[700]
-
                     rounded-[6px]
-
                     transition-all
                     duration-300
 
@@ -972,6 +968,7 @@ const StartProject = () => {
         </div>
 
       </div>
+
     </section>
   );
 };

@@ -412,9 +412,7 @@ const Hero = () => {
                 absolute
                 inset-0
 
-                bg-gradient-to-t
-                from-black/95
-                to-transparent
+               
 
                 flex
                 flex-col

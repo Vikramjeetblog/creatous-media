@@ -47,8 +47,8 @@ const Services = () => {
 
       images: [
         "assets/production4.jpg",
-        "assets/production.jpg",
-        "assets/production5.jpg",
+        "assets/production11.jpg",
+        "assets/production8.jpg",
       ],
     },
   ];

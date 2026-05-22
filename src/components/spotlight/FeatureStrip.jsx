@@ -5,28 +5,6 @@ import { motion } from "framer-motion";
 
 const FeatureStrip = () => {
 
-  const features = [
-    {
-      number: "01",
-      text: "Feature emerging creators globally.",
-    },
-
-    {
-      number: "02",
-      text: "Premium editorial visual direction.",
-    },
-
-    {
-      number: "03",
-      text: "Digital-first magazine experience.",
-    },
-
-    {
-      number: "04",
-      text: "Creator-first culture and storytelling.",
-    },
-  ];
-
   // CINEMATIC ANIMATIONS
   const containerAnimation = {
     hidden: {
@@ -40,7 +18,6 @@ const FeatureStrip = () => {
 
       transition: {
         duration: 2,
-        staggerChildren: 0.2,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -66,14 +43,16 @@ const FeatureStrip = () => {
   };
 
   return (
-    <section id="features"
+    <section
+      id="features"
+
       className="
         relative
         z-20
-       scroll-mt-[140px]
+
+        scroll-mt-[140px]
+
         px-[7%]
-        
-      
 
         bg-[#050505]
 
@@ -99,19 +78,13 @@ const FeatureStrip = () => {
           className="
             relative
 
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-4
-
-            gap-[25px]
-
             p-[28px]
             sm:p-[35px]
 
             rounded-[35px]
 
             bg-white/[0.05]
+
             border border-white/[0.08]
 
             backdrop-blur-[20px]
@@ -154,174 +127,144 @@ const FeatureStrip = () => {
             "
           />
 
-          {features.map((item, index) => (
+          {/* COMING SOON CARD */}
+          <motion.div
+
+            variants={cardAnimation}
+
+            whileHover={{
+              y: -10,
+            }}
+
+            transition={{
+              duration: 0.6,
+            }}
+
+            className="
+              group
+              relative
+
+              min-h-[220px]
+
+              flex
+              items-center
+              justify-center
+
+              rounded-[28px]
+
+              overflow-hidden
+
+              border border-white/[0.06]
+
+              bg-white/[0.02]
+            "
+          >
+
+            {/* LIGHT SWEEP */}
             <motion.div
-              key={index}
-
-              variants={cardAnimation}
-
-              whileHover={{
-                y: -10,
+              animate={{
+                x: ["-120%", "120%"],
               }}
 
               transition={{
-                duration: 0.6,
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: 2,
               }}
 
               className="
-                group
-                relative
+                absolute
+                top-0
+                left-0
 
-                p-[24px]
+                w-[35%]
+                h-full
 
-                rounded-[24px]
+                bg-gradient-to-r
+                from-transparent
+                via-white/[0.05]
+                to-transparent
 
-                overflow-hidden
+                skew-x-[-25deg]
+
+                pointer-events-none
+              "
+            />
+
+            {/* COMING SOON TEXT */}
+            <motion.h2
+              initial={{
+                opacity: 0,
+                y: 40,
+              }}
+
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+
+              transition={{
+                duration: 1.5,
+              }}
+
+              viewport={{
+                once: true,
+              }}
+
+              className="
+                text-white
+
+                text-[2rem]
+                md:text-[3rem]
+
+                font-['Montserrat']
+                font-[900]
+
+                tracking-[10px]
+
+                uppercase
+
+                text-center
+
+                opacity-90
               "
             >
+            Launching Soon
+            </motion.h2>
 
-              {/* LIGHT SWEEP */}
-              <motion.div
-                animate={{
-                  x: ["-120%", "120%"],
-                }}
+            {/* PREMIUM GLOW */}
+            <motion.div
+              animate={{
+                opacity: [0.02, 0.08, 0.02],
+              }}
 
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatDelay: 2,
-                  delay: index * 0.4,
-                }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
 
-                className="
-                  absolute
-                  top-0
-                  left-0
+              className="
+                absolute
+                inset-0
 
-                  w-[35%]
-                  h-full
+                rounded-[28px]
 
-                  bg-gradient-to-r
-                  from-transparent
-                  via-white/[0.05]
-                  to-transparent
+                bg-gradient-to-br
+                from-white/[0.04]
+                to-transparent
 
-                  skew-x-[-25deg]
+                pointer-events-none
+              "
+            />
 
-                  pointer-events-none
-                "
-              />
-
-              {/* NUMBER */}
-              <motion.h3
-                initial={{
-                  opacity: 0,
-                  y: 60,
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-
-                transition={{
-                  duration: 1.5,
-                  delay: index * 0.15,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-
-                viewport={{
-                  once: true,
-                }}
-
-                className="
-                  text-[2.3rem]
-                  md:text-[2.5rem]
-
-                  font-['Montserrat']
-                  font-[700]
-
-                  text-white
-
-                  mb-[12px]
-
-                  transition-all
-                  duration-500
-
-                  group-hover:tracking-[3px]
-                "
-              >
-                {item.number}
-              </motion.h3>
-
-              {/* TEXT */}
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-
-                transition={{
-                  duration: 1.8,
-                  delay: 0.2 + index * 0.15,
-                }}
-
-                viewport={{
-                  once: true,
-                }}
-
-                className="
-                  text-[#d0d0d0]
-
-                  text-[0.98rem]
-
-                  leading-[1.9]
-
-                  max-w-[220px]
-                "
-              >
-                {item.text}
-              </motion.p>
-
-              {/* PREMIUM GLOW */}
-              <motion.div
-                animate={{
-                  opacity: [0.02, 0.08, 0.02],
-                }}
-
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.3,
-                }}
-
-                className="
-                  absolute
-                  inset-0
-
-                  rounded-[24px]
-
-                  bg-gradient-to-br
-                  from-white/[0.04]
-                  to-transparent
-
-                  pointer-events-none
-                "
-              />
-
-            </motion.div>
-          ))}
+          </motion.div>
 
         </motion.div>
 
       </div>
+
     </section>
   );
 };

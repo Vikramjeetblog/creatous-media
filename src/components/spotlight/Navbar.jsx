@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
@@ -43,11 +44,12 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-[18px] bg-black/25 border-b border-white/[0.05]">
+
       <div className="max-w-[1550px] mx-auto px-[5%] h-[82px] flex items-center justify-between">
 
         {/* LOGO */}
         <Link
-          to="/spotlight"
+          to="/"
           className="
             font-['Montserrat']
             text-[1rem]
@@ -67,6 +69,7 @@ const Navbar = () => {
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-[45px]">
+
           {navLinks.map((link) => {
 
             // ROUTE LINK
@@ -103,9 +106,10 @@ const Navbar = () => {
 
             // SECTION LINK
             return (
-              <a
+              <HashLink
+                smooth
                 key={link.id}
-                href={`#${link.id}`}
+                to={`/spotlight#${link.id}`}
                 className={`
                   relative
                   text-[0.9rem]
@@ -129,17 +133,19 @@ const Navbar = () => {
                 `}
               >
                 {link.name}
-              </a>
+              </HashLink>
             );
           })}
+
         </nav>
 
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
 
           {/* DESKTOP BUTTON */}
-          <a
-            href="#submit"
+          <HashLink
+            smooth
+            to="/spotlight#submit"
             className="
               hidden md:flex
               px-[28px]
@@ -156,7 +162,7 @@ const Navbar = () => {
             "
           >
             Submit Portfolio
-          </a>
+          </HashLink>
 
           {/* MOBILE MENU BUTTON */}
           <button
@@ -165,6 +171,7 @@ const Navbar = () => {
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
+
         </div>
       </div>
 
@@ -204,9 +211,10 @@ const Navbar = () => {
 
             // SECTION LINK
             return (
-              <a
+              <HashLink
+                smooth
                 key={link.id}
-                href={`#${link.id}`}
+                to={`/spotlight#${link.id}`}
                 onClick={() => setMenuOpen(false)}
                 className={`
                   text-[1rem]
@@ -219,13 +227,14 @@ const Navbar = () => {
                 `}
               >
                 {link.name}
-              </a>
+              </HashLink>
             );
           })}
 
           {/* MOBILE BUTTON */}
-          <a
-            href="#submit"
+          <HashLink
+            smooth
+            to="/spotlight#submit"
             onClick={() => setMenuOpen(false)}
             className="
               mt-4
@@ -241,10 +250,12 @@ const Navbar = () => {
             "
           >
             Submit Portfolio
-          </a>
+          </HashLink>
+
         </div>
       </div>
     </header>
   );
 };
+
 export default Navbar;

@@ -197,47 +197,7 @@ const SubmitPortfolio = () => {
           </p>
         </div>
 
-        {/* FORM */}
-        {/* SUBMISSION FEE */}
-<div
-  className="
-    mb-8
-
-    border border-white/10
-    bg-white/[0.04]
-
-    rounded-3xl
-
-    p-6 sm:p-7
-
-    backdrop-blur-xl
-  "
->
-
-  <div className="flex items-center justify-between gap-6 flex-wrap">
-
-    <div>
-
-      <small className="uppercase tracking-[4px] text-white/40 text-[11px]">
-        Submission Fee
-      </small>
-
-      <h3 className="text-2xl sm:text-3xl font-semibold mt-3">
-        ₹999
-        <span className="text-white/50 text-lg ml-2">
-          + GST
-        </span>
-      </h3>
-
-    </div>
-
-    <div className="max-w-[420px]">
-     
-    </div>
-
-  </div>
-
-</div>
+    
         <form
           onSubmit={handleSubmit}
           className="
@@ -249,6 +209,85 @@ const SubmitPortfolio = () => {
             backdrop-blur-xl
           "
         >
+          {/* FORM HEADER */}
+<div
+  className="
+    pb-8
+    mb-2
+    border-b border-white/[0.08]
+  "
+>
+
+  <div className="flex items-center justify-between gap-6 flex-wrap">
+
+    {/* LEFT */}
+    <div>
+
+      <p
+        className="
+          text-[11px]
+          uppercase
+          tracking-[5px]
+          text-white/35
+          mb-3
+        "
+      >
+        Submission Fee
+      </p>
+
+      <div className="flex items-end gap-2">
+
+        <h3
+          className="
+            text-[2.6rem]
+            sm:text-[3rem]
+            leading-none
+            tracking-[-2px]
+            font-[700]
+            text-white
+          "
+        >
+          ₹999
+        </h3>
+
+        <span
+          className="
+            text-white/40
+            text-[0.95rem]
+            mb-[4px]
+          "
+        >
+          + GST
+        </span>
+
+      </div>
+
+    </div>
+
+    {/* RIGHT */}
+    <div
+      className="
+        px-5
+        py-3
+
+        rounded-full
+
+        border border-white/[0.08]
+
+        bg-white/[0.03]
+
+        text-white/50
+        text-[0.85rem]
+
+        whitespace-nowrap
+      "
+    >
+      Reviewed by CC Media™ Team
+    </div>
+
+  </div>
+
+</div>
 
           {/* FULL NAME */}
           <div>

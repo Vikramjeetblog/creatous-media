@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -19,13 +20,10 @@ const Footer = () => {
               to="/"
               className="
                 inline-block
-
                 text-[2rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -35,9 +33,7 @@ const Footer = () => {
             <p
               className="
                 max-w-[380px]
-
                 leading-[1.9]
-
                 text-[#d0d0d0]
               "
             >
@@ -58,9 +54,7 @@ const Footer = () => {
                 text-[1rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -69,65 +63,61 @@ const Footer = () => {
 
             <div className="flex flex-col gap-[14px]">
 
-              <a
-                href="#about"
+              <HashLink
+                smooth
+                to="/#about"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 About Us
-              </a>
+              </HashLink>
 
-              <a
-                href="#services"
+              <HashLink
+                smooth
+                to="/#services"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 Services
-              </a>
+              </HashLink>
 
-              <a
-                href="#portfolio"
+              <HashLink
+                smooth
+                to="/#portfolio"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 Portfolio
-              </a>
+              </HashLink>
 
-              <a
-                href="#magazine"
+              <HashLink
+                smooth
+                to="/#magazine"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
               >
                 Spotlight Platform
-              </a>
+              </HashLink>
 
             </div>
           </div>
@@ -140,9 +130,7 @@ const Footer = () => {
                 text-[1rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -155,10 +143,8 @@ const Footer = () => {
                 to="/privacy-policy"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -170,10 +156,8 @@ const Footer = () => {
                 to="/refund-policy"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -185,10 +169,8 @@ const Footer = () => {
                 to="/terms"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -200,10 +182,8 @@ const Footer = () => {
                 to="/submission-guidelines"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -222,9 +202,7 @@ const Footer = () => {
                 text-[1rem]
                 font-['Montserrat']
                 font-[700]
-
                 text-white
-
                 mb-[20px]
               "
             >
@@ -237,10 +215,8 @@ const Footer = () => {
                 href="mailto:support@creatouscollective.media"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -249,13 +225,13 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/creatouscollectivemedia/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -264,13 +240,13 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.linkedin.com/company/creatous-collective-media/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -282,10 +258,8 @@ const Footer = () => {
                 to="/"
                 className="
                   text-[#cfcfcf]
-
                   transition-all
                   duration-300
-
                   hover:text-white
                   hover:translate-x-[4px]
                 "
@@ -303,20 +277,14 @@ const Footer = () => {
           className="
             mt-[60px]
             pt-[40px]
-
             border-t border-white/[0.06]
-
             flex
             flex-col
             md:flex-row
-
             items-start
             md:items-center
-
             justify-between
-
             gap-[20px]
-
             text-[#a6a6a6]
           "
         >
